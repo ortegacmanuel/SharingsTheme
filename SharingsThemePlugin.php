@@ -35,6 +35,10 @@ if (!defined('STATUSNET')) {
     exit(1);
 }
 
+$dir = dirname(__FILE__);
+include_once $dir . '/lib/SharingsThemeHeader.php';
+include_once $dir . '/lib/SharingsThemeBody.php';
+
 /**
  * Sample plugin main class
  *
@@ -120,6 +124,7 @@ class SharingsThemePlugin extends Plugin
     public $attr1 = null;
     public $attr2 = null;
 
+
     /**
      * Initializer for this plugin
      *
@@ -170,6 +175,43 @@ class SharingsThemePlugin extends Plugin
 
     }
 
+
+    /**
+     * Show the CSS necessary for this plugin
+     *
+     * @param Action $action the action being run
+     *
+     * @return boolean hook value
+     */
+    function onEndShowStyles($action)
+    {
+
+        if($action->getActionName() == 'sharingsthemedirectory' or $action->getActionName() == 'sharingsthemenew') {
+            $action->cssLink($this->path('assets/bootstrap/css/bootstrap.css'));
+            $action->cssLink($this->path('assets/css/style.css'));
+        }
+
+        return true;
+    }
+
+    function onEndShowScripts($action)
+    {
+
+        if($action->getActionName() == 'sharingsthemedirectory' or $action->getActionName() == 'sharingsthemenew') {
+
+            $action->script($this->path('assets/js/jquery.cycle2.min.js'));
+            $action->script($this->path('assets/js/jquery.easing.1.3.js'));
+            $action->script($this->path('assets/js/jquery.parallax-1.1.js'));
+            $action->script($this->path('assets/js/helper-plugins/jquery.mousewheel.min.js'));
+            $action->script($this->path('assets/js/jquery.mCustomScrollbar.js'));
+            $action->script($this->path('assets/plugins/icheck-1.x/icheck.min.js'));
+            $action->script($this->path('assets/js/grids.js'));
+            $action->script($this->path('assets/js/owl.carousel.min.js'));
+            $action->script($this->path('assets/js/home.js'));
+            $action->script($this->path('assets/js/script.js'));
+        }
+    }
+
     /**
      * Map URLs to actions
      *
@@ -184,7 +226,7 @@ class SharingsThemePlugin extends Plugin
      */
     public function onRouterInitialized(URLMapper $m)
     {
-        $m->connect('main/public',
+        $m->connect('sharings/directory',
                     array('action' => 'sharingsthemedirectory'));
 
         $m->connect('main/sharings/new',

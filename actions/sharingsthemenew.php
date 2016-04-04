@@ -2,14 +2,14 @@
 
 class SharingsThemeNewAction extends NewSharingsAction {
 
-    //Sobreescribe la presentación de la barra de la izquierda
-    function showLocalNavBlock() {
-
+    function showHeader() {
+        SharingsThemeHeader::showHeader($this);
     }
 
-    //Sobre escribe la presentación de la barra de la derecha
-    function showAside() {
-    
+    function showBody()
+    {
+        SharingsThemeBody::showBody($this);
     }
+
 
 }
