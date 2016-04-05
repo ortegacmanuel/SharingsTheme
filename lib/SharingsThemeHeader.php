@@ -270,7 +270,11 @@ class SharingsThemeHeader {
                     $action->elementEnd('li');
 
                         $action->elementStart('li');
-                        $action->elementStart('a', array('href' => common_local_url('hederoposts')));
+                        try {
+                            $action->elementStart('a', array('href' => common_local_url('hederoposts')));
+                        } catch (Exception $e) {
+                            $action->elementStart('a', array('href' => common_local_url('qvitter')));
+                        }
                         $action->raw('Posts asociados');
                         $action->elementEnd('a');
                         $action->elementEnd('li');
