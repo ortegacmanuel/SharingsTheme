@@ -17,7 +17,7 @@ class SharingsThemeNewAction extends NewSharingsAction {
             $this->element('p', 'error', $this->error);
         }
 
-        $this->elementStart('div', array('class' => 'container main-container'));
+        $this->elementStart('div', array('class' => 'container main-container headerOffset'));
 
 
         $this->elementStart('div', array('class' => 'row'));
