@@ -207,6 +207,7 @@ class SharingsThemePlugin extends Plugin
             $action->script($this->path('assets/plugins/icheck-1.x/icheck.min.js'));
             $action->script($this->path('assets/js/grids.js'));
             $action->script($this->path('assets/js/owl.carousel.min.js'));
+            $action->script($this->path('assets/js/select2.min.js'));
             $action->script($this->path('assets/js/home.js'));
             $action->script($this->path('assets/js/script.js'));
         }

@@ -64,7 +64,7 @@ class SharingsThemeNewAction extends NewSharingsAction {
 
         $this->elementEnd('div');
 
-        $form = new NewSharingsForm($this,
+        $form = new NewSharingsThemeForm($this,
                                  $this->displayName,
                                  $this->summary, 
                                  $this->price, 
