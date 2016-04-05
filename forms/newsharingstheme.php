@@ -190,9 +190,7 @@ class NewSharingsThemeForm extends Form
         $this->raw(_m('Detalle'));
         $this->out->elementEnd('label');
 
-        $this->out->elementStart('textarea', array('rows' => '3', 'cols' => '26', 'name' => 'summary', 'class' => 'form-control'), $this->summary);
-
-        $this->out->elementEnd('textarea');
+        $this->out->element('textarea', array('rows' => '3', 'cols' => '26', 'name' => 'summary', 'class' => 'form-control'), $this->summary);
 
         $this->out->element('p', 'form_guide', _m('Detalle del objeto o servicio que se quiere compartir'));
 
