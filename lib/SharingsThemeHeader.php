@@ -304,11 +304,13 @@ class SharingsThemeHeader {
                         $action->elementEnd('a');
                         $action->elementEnd('li');
 
-                        $action->elementStart('li');
-                        $action->elementStart('a', array('href' => common_local_url('all', array('nickname' => $nickname))));
-                        $action->raw('Línea temporal');
-                        $action->elementEnd('a');
-                        $action->elementEnd('li');
+                        if (!empty($user)) {
+                            $action->elementStart('li');
+                            $action->elementStart('a', array('href' => common_local_url('all', array('nickname' => $nickname))));
+                            $action->raw('Línea temporal');
+                            $action->elementEnd('a');
+                            $action->elementEnd('li');
+                        }
 
                         $action->elementStart('li');
                         $action->elementStart('a', array('href' => common_local_url('public')));

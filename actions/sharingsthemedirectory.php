@@ -14,6 +14,7 @@ class SharingsThemeDirectoryAction extends SharingsdirectoryAction {
     function showContent()
     {
 
+        $user = common_current_user();
 
         $sharing = null;
         $sharing = $this->getSharings();
@@ -67,7 +68,7 @@ class SharingsThemeDirectoryAction extends SharingsdirectoryAction {
                 $this->elementStart('div', array('class' => 'description'));
 
                 $this->elementStart('h4');
-                $this->elementStart('a', array('href' => common_local_url('respondsharings', array('id' => $sharing->id))));
+                $this->elementStart('a', array('href' => common_local_url('showsharings', array('id' => $sharing->id))));
                 $this->raw($sharing->displayName);
                 $this->elementEnd('a');
                 $this->elementEnd('h4');
@@ -88,16 +89,19 @@ class SharingsThemeDirectoryAction extends SharingsdirectoryAction {
                 $this->elementEnd('div');
 
                 $this->elementStart('div', array('class' => 'action-control'));
-                $this->elementStart('a', array('class' => 'btn btn-primary'));
-                $this->elementStart('span', array('class' => 'add2cart'));
-                $this->elementStart('i', array('class' => 'glyphicon glyphicon-thumbs-up'));
-                $this->elementEnd('i');
-                $this->raw('Responder');
-                $this->elementEnd('span');                
-                $this->elementEnd('a');
 
+                if (!empty($user and $user->getProfile()->id != $sharing->profile_id)) {
+                    $this->elementStart('a', array('class' => 'btn btn-primary', 'href' => common_local_url('respondsharings', array('id' => $sharing->id))));
+                    $this->elementStart('span', array('class' => 'add2cart'));
+                    $this->elementStart('i', array('class' => 'glyphicon glyphicon-thumbs-up'));
+                    $this->elementEnd('i');
+                    $this->raw('Responder');
+                    $this->elementEnd('span');                
+                    $this->elementEnd('a');        
+                }
 
-            $this->elementEnd('div');
+                $this->elementEnd('div');
+
             $this->elementEnd('div');
             $this->elementEnd('div');
 
