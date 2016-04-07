@@ -198,7 +198,7 @@ class SharingsThemePlugin extends Plugin
     {
 
         if($action->getActionName() == 'sharingsthemedirectory' or $action->getActionName() == 'sharingsthemenew') {
-
+            $action->script($this->path('assets/bootstrap/js/bootstrap.min.js'));
             $action->script($this->path('assets/js/jquery.cycle2.min.js'));
             $action->script($this->path('assets/js/jquery.easing.1.3.js'));
             $action->script($this->path('assets/js/jquery.parallax-1.1.js'));

@@ -6,8 +6,11 @@ class SharingsThemeHeader {
 
     static function showHeader($action) {
 
-        $target = Profile::current();
-        $nickname  = $target->getNickname();
+        $user = common_current_user();
+
+        if (!empty($user)) {
+            $nickname  = $user->getProfile()->getNickname();
+        }
 
         $action->elementEnd('div');
         $action->elementStart('div', array('class' => 'navbar navbar-tshop navbar-fixed-top megamenu', 'role' => 'navigation'));
@@ -57,38 +60,60 @@ class SharingsThemeHeader {
 
                         $action->elementStart('ul', array('class' => 'userMenu'));
 
+                        if (empty($user)) {
+
                             $action->elementStart('li');
 
-                                $action->elementStart('a', array('href' => '#'));
+                                $action->elementStart('a', array('href' => common_local_url('login')));
                                 $action->elementStart('span', array('class' => 'hidden-xs'));
-                                $action->raw('Mi Perfil');
+                                $action->raw(_('Login'));
                                 $action->elementEnd('span');
                                 $action->elementStart('i', array('class' => 'glyphicon glyphicon-user hide visible-xs'));
                                 $action->elementEnd('i');                              
                                 $action->elementEnd('a');
                             $action->elementEnd('li');
 
-                            $action->elementStart('li');
+                        } else {
 
-                                $action->elementStart('a', array('href' => '#'));
-                                $action->elementStart('span', array('class' => 'hidden-xs'));
-                                $action->raw('Capital Social');
-                                $action->elementEnd('span');
-                                $action->elementStart('i', array('class' => 'glyphicon glyphicon-user hide visible-xs'));
-                                $action->elementEnd('i');                              
+                            $action->elementStart('li', array('class' => 'dropdown hasUserMenu'));
+
+                            $action->elementStart('a', array('href' => '#', 'class' => 'dropdown-toggle', 'data-toggle' => 'dropdown', 'aria-expanded' => 'false'));
+
+                            $action->elementStart('i', array('class' => 'glyphicon glyphicon-log-in hide visible-xs'));
+                            $action->elementEnd('i');
+                            $action->raw(sprintf(_m('Hola, %s'), $user->getProfile()->fullname));
+                            $action->elementStart('b', array('class' => 'caret'));
+                            $action->elementEnd('b');
+                            $action->elementEnd('a');
+
+                            $action->elementStart('ul', array('class' => 'dropdown-menu'));
+
+                                $action->elementStart('li');
+                                $action->elementStart('a', array('href' => common_local_url('profilesettings')));
+                                $action->elementStart('i', array('class' => 'fa fa fa-cog'));
+                                $action->elementEnd('i');
+                                $action->raw(_('Perfil'));
+
                                 $action->elementEnd('a');
+
+                                $action->elementEnd('li');
+
+                                $action->elementStart('li', array('class' => 'divider'));
+                                $action->elementEnd('li');
+
+                                $action->elementStart('li');
+                                $action->elementStart('a', array('href' => common_local_url('logout')));
+                                $action->elementStart('i', array('class' => 'fa  fa-sign-out'));
+                                $action->elementEnd('i');
+                                $action->raw(_('Cerrar sesión'));
+                                $action->elementEnd('a');
+                                $action->elementEnd('li');
+    
+                            $action->elementEnd('ul');
+
                             $action->elementEnd('li');
 
-                            $action->elementStart('li');
-
-                                $action->elementStart('a', array('href' => '#'));
-                                $action->elementStart('span', array('class' => 'hidden-xs'));
-                                $action->raw('Cerrar sesión');
-                                $action->elementEnd('span');
-                                $action->elementStart('i', array('class' => 'glyphicon glyphicon-user hide visible-xs'));
-                                $action->elementEnd('i');                              
-                                $action->elementEnd('a');
-                            $action->elementEnd('li');
+                        }
 
                         $action->elementEnd('ul');
 
