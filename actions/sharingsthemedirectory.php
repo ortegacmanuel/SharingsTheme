@@ -91,7 +91,12 @@ class SharingsThemeDirectoryAction extends SharingsdirectoryAction {
                 $this->elementStart('div', array('class' => 'action-control'));
 
                 if (!empty($user and $user->getProfile()->id != $sharing->profile_id)) {
-                    $this->elementStart('a', array('class' => 'btn btn-primary', 'href' => common_local_url('respondsharings', array('id' => $sharing->id))));
+
+                    $form = new SharingsThemeResponseForm($sharing, $this);
+
+                    $form->show();
+
+                    $this->elementStart('a', array('class' => 'btn btn-primary', 'href' => '#', 'onclick' => 'document.getElementById("sharingresponse-form-' . $sharing->id . '").submit();' ));
                     $this->elementStart('span', array('class' => 'add2cart'));
                     $this->elementStart('i', array('class' => 'glyphicon glyphicon-thumbs-up'));
                     $this->elementEnd('i');

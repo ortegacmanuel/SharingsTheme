@@ -3864,7 +3864,7 @@ h5.parallaxSubtitle {
 .price-standard {
     color: #999999;
     font-size: 18px;
-    text-decoration: line-through;
+    /*text-decoration: line-through; */
 }
 
 .product-code {

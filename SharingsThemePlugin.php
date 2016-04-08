@@ -186,7 +186,7 @@ class SharingsThemePlugin extends Plugin
     function onEndShowStyles($action)
     {
 
-        if($action->getActionName() == 'sharingsthemedirectory' or $action->getActionName() == 'sharingsthemenew') {
+        if($action->getActionName() == 'sharingsthemedirectory' or $action->getActionName() == 'sharingsthemenew' or $action->getActionName() == 'showsharingstheme') {
             $action->cssLink($this->path('assets/bootstrap/css/bootstrap.css'));
             $action->cssLink($this->path('assets/css/style.css'));
         }
@@ -197,8 +197,9 @@ class SharingsThemePlugin extends Plugin
     function onEndShowScripts($action)
     {
 
-        if($action->getActionName() == 'sharingsthemedirectory' or $action->getActionName() == 'sharingsthemenew') {
+        if($action->getActionName() == 'sharingsthemedirectory' or $action->getActionName() == 'sharingsthemenew' or $action->getActionName() == 'showsharingstheme') {
             $action->script($this->path('assets/bootstrap/js/bootstrap.min.js'));
+            $action->script($this->path('assets/js/smoothproducts.min.js'));
             $action->script($this->path('assets/js/jquery.cycle2.min.js'));
             $action->script($this->path('assets/js/jquery.easing.1.3.js'));
             $action->script($this->path('assets/js/jquery.parallax-1.1.js'));
@@ -227,11 +228,22 @@ class SharingsThemePlugin extends Plugin
      */
     public function onRouterInitialized(URLMapper $m)
     {
+
         $m->connect('sharings/directory',
                     array('action' => 'sharingsthemedirectory'));
 
         $m->connect('main/sharings/new',
                     array('action' => 'sharingsthemenew'));
+
+        $m->connect('main/sharings/:id',
+                    array('action' => 'showsharingstheme'),
+                    array('id' => '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}'));
+
+		URLMapperOverwriteSharingsTheme::overwrite_variable($m, 'main/sharings/:id',
+								array('action' => 'showsharingstheme'),
+								array('id' => '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}'),
+								'showsharingstheme');
+
         return true;
     }
 
@@ -256,13 +268,13 @@ class SharingsThemePlugin extends Plugin
     {
         // common_local_url() gets the correct URL for the action name
         // we provide
-        $action->menuItem(common_local_url('sharingsdirectory'),
+        $action->menuItem(common_local_url('sharingsthemedirectory'),
                           // TRANS: Menu item in sample plugin.
                           _m('Buscar'),
                           // TRANS: Menu item title in sample plugin.
                           _m('Explorar el catálogo'), false, 'nav_hello');
 
-        $action->menuItem(common_local_url('newsharings'),
+        $action->menuItem(common_local_url('sharingsthemenew'),
                           // TRANS: Menu item in sample plugin.
                           _m('Publicar'),
                           // TRANS: Menu item title in sample plugin.
@@ -281,5 +293,24 @@ class SharingsThemePlugin extends Plugin
                           // TRANS: Plugin description.
                             _m('A sample plugin to show basics of development for new hackers.'));
         return true;
+    }
+}
+
+/**
+ * Overwrites variables in URL-mapping
+ *
+ */
+class URLMapperOverwriteSharingsTheme extends URLMapper
+{
+    static function overwrite_variable($m, $path, $args, $paramPatterns, $newaction)
+    {
+
+        $m->connect($path, array('action' => $newaction), $paramPatterns);
+
+		$regex = self::makeRegex($path, $paramPatterns);
+
+		foreach($m->variables as $n=>$v)
+			if($v[1] == $regex)
+				$m->variables[$n][0]['action'] = $newaction;
     }
 }

@@ -195,13 +195,15 @@ class SharingsThemeHeader {
                     $action->elementEnd('p');
                     $action->elementEnd('li');
 
-                    foreach($action->kategori as $key => $val) {
-                        $action->elementStart('li');
-                        $action->elementStart('a', array('href' => '#'));
-                        $action->raw($val);
-                        $action->elementEnd('a');
-                        $action->elementEnd('li');
+                    if(isset($action->kategori)) {
+                        foreach($action->kategori as $key => $val) {
+                                $action->elementStart('li');
+                                $action->elementStart('a', array('href' => '#'));
+                                $action->raw($val);
+                                $action->elementEnd('a');
+                                $action->elementEnd('li');
 
+                        }
                     }
 
 
