@@ -122,7 +122,9 @@ class ShowSharingsThemeAction extends ShowSharingsAction {
 
         $this->elementStart('h3', array('class' => 'incaps'));
         $this->element('i', array('class' => 'glyphicon glyphicon-map-marker'));
+        $this->elementStart('a', array('href' => common_local_url('sharingsthemedirectory') . '?sharing_city_id=' . $sharing->sharing_city_id ));
         $this->raw(Sharing_city::getNameById($sharing->sharing_city_id));
+        $this->elementEnd('a');
         $this->elementEnd('h3');
 
         $this->elementStart('div', array('class' => 'cart-actions'));
