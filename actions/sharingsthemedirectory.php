@@ -18,9 +18,227 @@ class SharingsThemeDirectoryAction extends SharingsdirectoryAction {
 
         $sharing = null;
         $sharing = $this->getSharings();
-        $cnt     = 1;
+
+        $nro_sharings = $sharing;
+        $cnt = (int)$nro_sharings->count();
+
+        $this->elementStart('div', array('class' => 'container main-container headerOffset'));
 
 
+        $this->elementStart('div', array('class' => 'row'));
+
+        $this->elementStart('div', array('class' => 'breadcrumbDiv col-lg-12'));
+
+        $this->elementStart('ul', array('class' => 'breadcrumb'));
+
+            $this->elementStart('li');
+            $this->elementStart('a', array('href' => common_local_url('public')));
+            $this->raw('Inicio');
+            $this->elementEnd('a');
+            $this->elementEnd('li');
+
+            $this->elementStart('li');
+            $this->elementStart('a', array('href' => common_local_url('sharingsthemedirectory')));
+            $this->raw('Sharings');
+            $this->elementEnd('a');
+            $this->elementEnd('li');
+
+            $this->elementStart('li');
+            $this->raw(_m('Catálogo'));
+            $this->elementEnd('li');
+
+        $this->elementEnd('ul');
+
+        $this->elementEnd('div');
+        $this->elementEnd('div');
+
+        $form = new SharingsThemeDirectoryForm($this);
+
+        $form->show();
+
+
+        $this->elementStart('div', array('class' => 'col-lg-9 col-md-9 col-sm-12'));
+        $this->elementStart('div', array('class' => 'w100 clearfix category-top'));
+
+        $this->elementStart('h2');
+        $this->raw(_m('Catálogo'));
+        $this->elementEnd('h2');
+
+        $this->elementEnd('div');
+
+        /* ¿Mucha distracción antes de ver los objetos y servicios?
+        $this->elementStart('div', array('class' => 'row subCategoryList clearfix'));
+        $this->elementStart('div', array('class' => 'col-lg-2 col-md-2 col-sm-3 col-xs-4  text-center '));
+        $this->elementStart('div', array('class' => 'thumbnail equalheight'));
+
+        $this->elementStart('a', array('href' => common_local_url('public'), 'class' => 'subCategoryThumb'));
+
+        $this->element('img', array('class' => 'img-responsive', 'src' => SharingsThemePlugin::staticPath('SharingsTheme', 'images/sharings.png'), 'alt' => 'img'));
+        $this->elementEnd('a');
+
+        $this->elementStart('a', array('href' => common_local_url('public'), 'class' => 'subCategoryTitle'));
+        $this->elementStart('span');
+        $this->raw(_m('Hospitalidad'));
+        $this->elementEnd('span');
+        $this->elementEnd('a');
+
+        $this->elementEnd('div');
+        $this->elementEnd('div');
+
+ $this->elementStart('div', array('class' => 'col-lg-2 col-md-2 col-sm-3 col-xs-4  text-center '));
+        $this->elementStart('div', array('class' => 'thumbnail equalheight'));
+
+        $this->elementStart('a', array('href' => common_local_url('public'), 'class' => 'subCategoryThumb'));
+
+        $this->element('img', array('class' => 'img-responsive', 'src' => SharingsThemePlugin::staticPath('SharingsTheme', 'images/sharings.png'), 'alt' => 'img'));
+        $this->elementEnd('a');
+
+        $this->elementStart('a', array('href' => common_local_url('public'), 'class' => 'subCategoryTitle'));
+        $this->elementStart('span');
+        $this->raw(_m('Hospitalidad'));
+        $this->elementEnd('span');
+        $this->elementEnd('a');
+
+        $this->elementEnd('div');
+        $this->elementEnd('div');
+
+        $this->elementEnd('div');
+        */
+
+        $this->elementStart('div', array('class' => 'w100 productFilter clearfix'));
+
+        $this->elementStart('p', array('class' => 'pull-left'));
+        $this->raw(_m(sprintf('Monstrando <strong>%d<strong> resultados', $cnt)));
+        $this->elementEnd('p');
+
+        $this->elementStart('div', array('class' => 'pull-right'));
+        $this->elementStart('div', array('class' => 'change-order pull-right'));
+        $this->elementStart('select', array('class' => 'form-control', 'name' => 'orderby'));
+            $this->elementStart('option', array('selected' => 'selected'));
+            $this->raw(_m('Ordén por defecto'));
+            $this->elementEnd('option');
+
+            $this->elementStart('option', array('value' => 'popularidad'));
+            $this->raw(_m('Ordén por popularidad'));
+            $this->elementEnd('option');
+
+            $this->elementStart('option', array('value' => 'valoracion'));
+            $this->raw(_m('Ordén por valoración'));
+            $this->elementEnd('option');
+
+            $this->elementStart('option', array('value' => 'fecha'));
+            $this->raw(_m('Los más recientes'));
+            $this->elementEnd('option');
+
+        $this->elementEnd('select');
+
+        $this->elementEnd('div');
+
+        $this->elementStart('div', array('class' => 'change-view pull-right'));
+
+        $this->elementStart('a', array('href' => '#', 'class' => 'grid-view', 'title' => 'Grid'));
+        $this->element('i', array('class' => 'fa fa-th-large'));
+
+        $this->elementEnd('a');
+
+        $this->elementStart('a', array('href' => '#', 'class' => 'list-view', 'title' => 'List'));
+        $this->element('i', array('class' => 'fa fa-th-list'));
+
+        $this->elementEnd('a');
+
+        $this->elementEnd('div');
+        $this->elementEnd('div');
+        $this->elementEnd('div');
+
+        $this->elementStart('div', array('class' => 'row  categoryProduct xsResponse clearfix'));
+
+        while ($sharing->fetch()) {
+
+            $this->elementStart('div', array('class' => 'item col-sm-4 col-lg-4 col-md-4 col-xs-6'));
+
+            $this->elementStart('div', array('class' => 'product'));
+
+                $this->elementStart('a', array('class' => 'add-fav tooltipHere', 'data-toggle' => 'tooltip', 'data-original-title' => 'Agregar a favoritos', 'data-placement' => 'left'));
+                $this->elementStart('i', array('class' => 'glyphicon glyphicon-heart'));
+                $this->elementEnd('i');
+                $this->elementEnd('a');
+                $this->elementStart('div', array('class' => 'image'));
+                $this->elementStart('div', array('class' => 'quickview'));
+
+                $this->elementStart('a', array('data-toggle' => 'modal', 'class' => 'btn btn-xs btn-quickview', 'href' => common_local_url('showsharings', array('id' => $sharing->id)), 'data-target' => '#productSetailsModalAjax'));
+                $this->raw('Ver');
+                $this->elementEnd('a');
+                $this->elementEnd('div');
+
+                $this->elementStart('a', array('href' => 'product-details.html'));
+                $this->element('img', array('class' => 'img-responsive', 'src' => SharingsThemePlugin::staticPath('SharingsTheme', 'images/sharings.png'), 'alt' => 'img'));
+                $this->elementEnd('a');
+
+                $this->elementStart('div', array('class' => 'promotion'));
+
+                $this->elementStart('span', array('class' => 'new-product'));
+                $this->raw(Sharing_category::getNameById($sharing->sharing_category_id));
+                $this->elementEnd('span');
+                $this->elementStart('span', array('class' => 'discount'));
+                $this->raw(Sharing_type::getNameById($sharing->sharing_type_id));
+                $this->elementEnd('span');
+                $this->elementEnd('div');
+                $this->elementEnd('div');
+
+                $this->elementStart('div', array('class' => 'description'));
+
+                $this->elementStart('h4');
+                $this->elementStart('a', array('href' => common_local_url('showsharings', array('id' => $sharing->id))));
+                $this->raw($sharing->displayName);
+                $this->elementEnd('a');
+                $this->elementEnd('h4');
+
+                $this->elementStart('p');
+                $this->raw($sharing->summary);
+                $this->elementEnd('p');
+
+                $this->elementStart('span', array('class' => 'size'));
+                $this->raw(Sharing_city::getNameById($sharing->sharing_city_id));
+                $this->elementEnd('span');
+                $this->elementEnd('div');
+
+                $this->elementStart('div', array('class' => 'price'));
+                $this->elementStart('span');
+                $this->raw($sharing->price);
+                $this->elementEnd('span');
+                $this->elementEnd('div');
+
+                $this->elementStart('div', array('class' => 'action-control'));
+
+                if (!empty($user and $user->getProfile()->id != $sharing->profile_id)) {
+
+                    $form = new SharingsThemeResponseForm($sharing, $this);
+
+                    $form->show();
+
+                    $this->elementStart('a', array('class' => 'btn btn-primary', 'href' => '#', 'onclick' => 'document.getElementById("sharingresponse-form-' . $sharing->id . '").submit();' ));
+                    $this->elementStart('span', array('class' => 'add2cart'));
+                    $this->elementStart('i', array('class' => 'glyphicon glyphicon-thumbs-up'));
+                    $this->elementEnd('i');
+                    $this->raw('Responder');
+                    $this->elementEnd('span');                
+                    $this->elementEnd('a'); 
+                }
+
+                $this->elementEnd('div');
+
+            $this->elementEnd('div');
+            $this->elementEnd('div');
+
+            }
+
+
+            $this->elementEnd('div');
+            $this->elementEnd('div');
+
+
+
+        /*
         $this->elementStart('div', array('class' => 'container main-container'));
         $this->elementStart('div', array('class' => 'row featuredPostContainer globalPadding style2'));
 
@@ -117,7 +335,7 @@ class SharingsThemeDirectoryAction extends SharingsdirectoryAction {
 
         $this->elementEnd('div');
         $this->elementEnd('div');
-
+        */
 
         if (0 == $cnt) {
              $this->showEmptyListMessage();

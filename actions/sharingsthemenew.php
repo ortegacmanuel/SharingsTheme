@@ -27,13 +27,13 @@ class SharingsThemeNewAction extends NewSharingsAction {
         $this->elementStart('ul', array('class' => 'breadcrumb'));
 
             $this->elementStart('li');
-            $this->elementStart('a', array('href' => '#'));
+            $this->elementStart('a', array('href' => common_local_url('public')));
             $this->raw('Inicio');
             $this->elementEnd('a');
             $this->elementEnd('li');
 
             $this->elementStart('li');
-            $this->elementStart('a', array('href' => '#'));
+            $this->elementStart('a', array('href' => common_local_url('sharingsthemedirectory')));
             $this->raw('Sharings');
             $this->elementEnd('a');
             $this->elementEnd('li');

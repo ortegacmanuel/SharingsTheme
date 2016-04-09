@@ -211,6 +211,7 @@ class SharingsThemePlugin extends Plugin
             $action->script($this->path('assets/js/select2.min.js'));
             $action->script($this->path('assets/js/home.js'));
             $action->script($this->path('assets/js/script.js'));
+            $action->script($this->path('assets/js/sharingdirectory.js'));
         }
     }
 
