@@ -66,10 +66,16 @@ class ShowSharingsThemeAction extends ShowSharingsAction {
 
             $this->elementStart('a', array('href' => '#'));
 
+            $image_url = File_to_sharing::getImageUrl($sharing);
+            if($image_url == '') {
                 $this->element('img', array('class' => 'img-responsive', 'src' => SharingsThemePlugin::staticPath('SharingsTheme', 'images/sharings.png'), 'alt' => 'img'));
+            } else {
+                $this->element('img', array('class' => 'img-responsive', 'src' => $image_url, 'alt' => 'img'));
+            }
 
             $this->elementEnd('a');
 
+            /*
             $this->elementStart('a', array('href' => '#'));
 
                 $this->element('img', array('class' => 'img-responsive', 'src' => SharingsThemePlugin::staticPath('SharingsTheme', 'images/sharings.png'), 'alt' => 'img'));
@@ -81,6 +87,7 @@ class ShowSharingsThemeAction extends ShowSharingsAction {
                 $this->element('img', array('class' => 'img-responsive', 'src' => SharingsThemePlugin::staticPath('SharingsTheme', 'images/sharings.png'), 'alt' => 'img'));
 
             $this->elementEnd('a');
+            */
 
         $this->elementEnd('div');
         $this->elementEnd('div');
@@ -168,7 +175,13 @@ class ShowSharingsThemeAction extends ShowSharingsAction {
         $this->elementStart('div', array('class' => 'product'));
 
         $this->elementStart('a', array('href' => common_local_url('showsharings', array('id' => $sharing_categoria->id)), 'class' => 'product-image'));
+
+        $image_url = File_to_sharing::getImageUrl($sharing_categoria);
+        if($image_url == '') {
             $this->element('img', array('class' => 'img-responsive', 'src' => SharingsThemePlugin::staticPath('SharingsTheme', 'images/sharings.png'), 'alt' => 'img'));
+        } else {
+            $this->element('img', array('class' => 'img-responsive', 'src' => $image_url, 'alt' => 'img'));
+        }
         $this->elementEnd('a');
 
         $this->elementStart('div', array('class' => 'description'));

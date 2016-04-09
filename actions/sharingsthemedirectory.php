@@ -171,7 +171,13 @@ class SharingsThemeDirectoryAction extends SharingsdirectoryAction {
                 $this->elementEnd('div');
 
                 $this->elementStart('a', array('href' => 'product-details.html'));
-                $this->element('img', array('class' => 'img-responsive', 'src' => SharingsThemePlugin::staticPath('SharingsTheme', 'images/sharings.png'), 'alt' => 'img'));
+
+                $image_url = File_to_sharing::getImageUrl($sharing);
+                if($image_url == '') {
+                    $this->element('img', array('class' => 'img-responsive', 'src' => SharingsThemePlugin::staticPath('SharingsTheme', 'images/sharings.png'), 'alt' => 'img'));
+                } else {
+                    $this->element('img', array('class' => 'img-responsive', 'src' => $image_url, 'alt' => 'img'));
+                }
                 $this->elementEnd('a');
 
                 $this->elementStart('div', array('class' => 'promotion'));
