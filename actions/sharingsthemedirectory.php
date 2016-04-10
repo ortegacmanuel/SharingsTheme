@@ -165,12 +165,12 @@ class SharingsThemeDirectoryAction extends SharingsdirectoryAction {
                 $this->elementStart('div', array('class' => 'image'));
                 $this->elementStart('div', array('class' => 'quickview'));
 
-                $this->elementStart('a', array('data-toggle' => 'modal', 'class' => 'btn btn-xs btn-quickview', 'href' => common_local_url('showsharings', array('id' => $sharing->id)), 'data-target' => '#productSetailsModalAjax'));
-                $this->raw('Ver');
+                $this->elementStart('a', array('class' => 'btn btn-xs btn-quickview', 'href' => common_local_url('showsharings', array('id' => $sharing->id))));
+                $this->raw(_m('Ver'));
                 $this->elementEnd('a');
                 $this->elementEnd('div');
 
-                $this->elementStart('a', array('href' => 'product-details.html'));
+                $this->elementStart('a', array('href' => common_local_url('showsharings', array('id' => $sharing->id))));
 
                 $image_url = File_to_sharing::getImageUrl($sharing);
                 if($image_url == '') {

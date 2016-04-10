@@ -25,9 +25,9 @@ class SharingsThemeHeader {
 
                             $action->elementStart('li');
 
-                                $action->elementStart('a', array('href' => '#'));
+                                $action->elementStart('a', array('href' => common_local_url('doc', array('title' => 'faq'))));
                                 $action->elementStart('span', array('class' => 'hidden-xs'));
-                                $action->raw('Preguntas frecuentes');
+                                $action->raw(_('Preguntas frecuentes'));
                                 $action->elementEnd('span');
                                 $action->elementStart('i', array('class' => 'glyphicon glyphicon-info-sign hide visible-xs'));
                                 $action->elementEnd('i');                              
