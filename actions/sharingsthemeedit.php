@@ -1,6 +1,6 @@
 <?php
 
-class SharingsThemeNewAction extends NewSharingsAction {
+class SharingsThemeEditAction extends EditSharingsAction {
 
     function showHeader() {
         SharingsThemeHeader::showHeader($this);
@@ -39,7 +39,7 @@ class SharingsThemeNewAction extends NewSharingsAction {
             $this->elementEnd('li');
 
             $this->elementStart('li');
-            $this->raw(_m('Nuevo'));
+            $this->raw(_m('Editar'));
             $this->elementEnd('li');
 
         $this->elementEnd('ul');
@@ -54,21 +54,15 @@ class SharingsThemeNewAction extends NewSharingsAction {
         $this->elementStart('h1', array('class' => 'section-title-inner'));
         $this->elementStart('span');
 
-        $this->elementStart('i', array('class' => 'glyphicon glyphicon-plus'));
+        $this->elementStart('i', array('class' => 'glyphicon glyphicon-edit'));
         $this->elementEnd('i');
-        $this->raw(_m('Nuevo objeto o servicio'));
+        $this->raw(_m('Editar objeto o servicio'));
         $this->elementEnd('span');
         $this->elementEnd('h1');
 
         $this->elementEnd('div');
 
-        $form = new NewSharingsThemeForm($this,
-                                 $this->displayName,
-                                 $this->summary, 
-                                 $this->price, 
-                                 $this->sharing_category_id,
-                                 $this->sharing_type_id,
-                                 $this->sharing_city_id);
+        $form = new EditSharingsThemeForm($this, $this->sharing);
 
         $form->show();
 

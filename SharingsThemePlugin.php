@@ -186,7 +186,7 @@ class SharingsThemePlugin extends Plugin
     function onEndShowStyles($action)
     {
 
-        if($action->getActionName() == 'sharingsthemedirectory' or $action->getActionName() == 'sharingsthemenew' or $action->getActionName() == 'showsharingstheme') {
+        if($action->getActionName() == 'sharingsthemedirectory' or $action->getActionName() == 'sharingsthemenew' or $action->getActionName() == 'showsharingstheme' or $action->getActionName() == 'sharingsthemeedit') {
             $action->cssLink($this->path('assets/bootstrap/css/bootstrap.css'));
             $action->cssLink($this->path('assets/css/style.css'));
         }
@@ -197,7 +197,7 @@ class SharingsThemePlugin extends Plugin
     function onEndShowScripts($action)
     {
 
-        if($action->getActionName() == 'sharingsthemedirectory' or $action->getActionName() == 'sharingsthemenew' or $action->getActionName() == 'showsharingstheme') {
+        if($action->getActionName() == 'sharingsthemedirectory' or $action->getActionName() == 'sharingsthemenew' or $action->getActionName() == 'showsharingstheme' or $action->getActionName() == 'sharingsthemeedit') {
             $action->script($this->path('assets/bootstrap/js/bootstrap.min.js'));
             $action->script($this->path('assets/js/smoothproducts.min.js'));
             $action->script($this->path('assets/js/jquery.cycle2.min.js'));
@@ -240,10 +240,19 @@ class SharingsThemePlugin extends Plugin
                     array('action' => 'showsharingstheme'),
                     array('id' => '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}'));
 
+        $m->connect('main/sharings/:id/edit',
+                    array('action' => 'sharingsthemeedit'),
+                    array('id' => '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}'));
+
 		URLMapperOverwriteSharingsTheme::overwrite_variable($m, 'main/sharings/:id',
 								array('action' => 'showsharingstheme'),
 								array('id' => '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}'),
 								'showsharingstheme');
+
+		URLMapperOverwriteSharingsTheme::overwrite_variable($m, 'main/sharings/:id/edit',
+								array('action' => 'sharingsthemeedit'),
+								array('id' => '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}'),
+								'sharingsthemeedit');
 
         return true;
     }

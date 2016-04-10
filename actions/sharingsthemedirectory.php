@@ -222,11 +222,19 @@ class SharingsThemeDirectoryAction extends SharingsdirectoryAction {
 
                     $form->show();
 
-                    $this->elementStart('a', array('class' => 'btn btn-primary', 'href' => '#', 'onclick' => 'document.getElementById("sharingresponse-form-' . $sharing->id . '").submit();' ));
+                    $this->elementStart('a', array('class' => 'btn btn-primary', 'href' => '#', 'onclick' => 'document.getElementById("sharingresponse-form-' . $sharing->id . '").submit();', 'title' => _m('Contactar con el usuario que comparte este objeto o servicio')));
                     $this->elementStart('span', array('class' => 'add2cart'));
                     $this->elementStart('i', array('class' => 'glyphicon glyphicon-thumbs-up'));
                     $this->elementEnd('i');
                     $this->raw('Responder');
+                    $this->elementEnd('span');                
+                    $this->elementEnd('a'); 
+                } else {
+                    $this->elementStart('a', array('class' => 'btn btn-primary', 'href' => common_local_url('showsharings', array('id' => $sharing->id)), 'title' => _m('Editar o dar de baja tu objeto o servicio')));
+                    $this->elementStart('span', array('class' => 'add2cart'));
+                    $this->elementStart('i', array('class' => 'glyphicon glyphicon-wrench'));
+                    $this->elementEnd('i');
+                    $this->raw('Administrar');
                     $this->elementEnd('span');                
                     $this->elementEnd('a'); 
                 }

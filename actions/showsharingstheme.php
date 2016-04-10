@@ -18,6 +18,8 @@ class ShowSharingsThemeAction extends ShowSharingsAction {
             $this->element('p', 'error', $this->error);
         }
 
+        $user = common_current_user();
+
         $sharing = $this->sharings;
 
         $this->elementStart('div', array('class' => 'container main-container headerOffset'));
@@ -136,19 +138,41 @@ class ShowSharingsThemeAction extends ShowSharingsAction {
 
         $this->elementStart('div', array('class' => 'cart-actions'));
 
-        $form = new SharingsThemeResponseForm($sharing, $this);
+        if (!empty($user and $user->getProfile()->id != $sharing->profile_id)) {
+            $form = new SharingsThemeResponseForm($sharing, $this);
 
-        $form->show();
+            $form->show();
 
-        $this->elementStart('div', array('class' => 'addto row'));
+            $this->elementStart('div', array('class' => 'addto row'));
 
-        $this->elementStart('div', array('class' => 'col-lg-6 col-md-6 col-sm-6 col-xs-12'));
+            $this->elementStart('div', array('class' => 'col-lg-6 col-md-6 col-sm-6 col-xs-12'));
 
-        $this->elementStart('button', array('onclick' => 'document.getElementById("sharingresponse-form-' . $sharing->id . '").submit();', 'class' => 'button btn-block btn-cart cart first', 'title' => 'Add to Cart', 'type' => 'button'));
-        $this->raw('Responder');
-        $this->elementEnd('button');
-        $this->elementEnd('div');
-        $this->elementEnd('div');
+            $this->elementStart('button', array('onclick' => 'document.getElementById("sharingresponse-form-' . $sharing->id . '").submit();', 'class' => 'button btn-block btn-cart cart first', 'title' => _m('Contactar con el usuario que comparte este objeto o servicio'), 'type' => 'button'));
+            $this->raw(_m('Responder'));
+            $this->elementEnd('button');
+            $this->elementEnd('div');
+            $this->elementEnd('div');
+        } else {
+
+            $this->elementStart('div', array('class' => 'addto row'));
+
+            $this->elementStart('div', array('class' => 'col-lg-6 col-md-6 col-sm-6 col-xs-12'));
+
+            $this->elementStart('a', array('class' => 'btn btn-block btn-primary', 'title' => _m('Contactar con el usuario que comparte este objeto o servicio'), 'href' => common_local_url('editsharings', array('id' => $sharing->id))));
+            $this->raw(_m('Editar'));
+            $this->elementEnd('a');
+            $this->elementEnd('div');
+
+            $this->elementStart('div', array('class' => 'col-lg-6 col-md-6 col-sm-6 col-xs-12'));
+
+            $this->elementStart('a', array('class' => 'btn btn-block btn-danger', 'title' => _m('Contactar con el usuario que comparte este objeto o servicio'), 'href' => common_local_url('deletesharings', array('id' => $sharing->id))));
+            $this->raw(_m('Eliminar'));
+            $this->elementEnd('button');
+            $this->elementEnd('div');
+
+            $this->elementEnd('div');
+
+        }
 
         $this->elementEnd('div');
 

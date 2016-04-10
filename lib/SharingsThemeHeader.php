@@ -92,11 +92,33 @@ class SharingsThemeHeader {
                                 $action->elementStart('a', array('href' => common_local_url('profilesettings')));
                                 $action->elementStart('i', array('class' => 'fa fa fa-cog'));
                                 $action->elementEnd('i');
-                                $action->raw(_('Perfil'));
+                                $action->raw(_m('Perfil'));
 
                                 $action->elementEnd('a');
 
                                 $action->elementEnd('li');
+
+                                $action->elementStart('li');
+                                $action->elementStart('a', array('href' => common_local_url('mysharings', array('nickname' => $user->getNickname()))));
+                                $action->elementStart('i', array('class' => 'glyphicon glyphicon-list'));
+                                $action->elementEnd('i');
+                                $action->raw(_m('Mis objetos y servicios'));
+
+                                $action->elementEnd('a');
+
+                                $action->elementEnd('li');
+
+                                $action->elementStart('li');
+                                $action->elementStart('a', array('href' => common_local_url('newsharings')));
+                                $action->elementStart('i', array('class' => 'glyphicon glyphicon-plus'));
+                                $action->elementEnd('i');
+                                $action->raw(_m('Agregar un objeto o servicio'));
+
+                                $action->elementEnd('a');
+
+                                $action->elementEnd('li');
+
+
 
                                 $action->elementStart('li', array('class' => 'divider'));
                                 $action->elementEnd('li');
@@ -105,7 +127,7 @@ class SharingsThemeHeader {
                                 $action->elementStart('a', array('href' => common_local_url('logout')));
                                 $action->elementStart('i', array('class' => 'fa  fa-sign-out'));
                                 $action->elementEnd('i');
-                                $action->raw(_('Cerrar sesión'));
+                                $action->raw(_m('Cerrar sesión'));
                                 $action->elementEnd('a');
                                 $action->elementEnd('li');
     
@@ -167,114 +189,17 @@ class SharingsThemeHeader {
 
                 $action->elementStart('li', array('class' => 'active'));
 
-                    $action->elementStart('a', array('href' => '#'));
+                    $action->elementStart('a', array('href' => common_local_url('public')));
                     $action->raw('Home');
                     $action->elementEnd('a');
                 $action->elementEnd('li');
 
-                $action->elementStart('li', array('class' => 'dropdown megamenu-fullwidth'));
+                $action->elementStart('li', array('class' => ''));
 
-                    $action->elementStart('a', array('href' => '#', 'data-toggle' => 'dropdown', 'class' => 'dropdown-toggle'));
+                    $action->elementStart('a', array('href' => common_local_url('sharingsthemedirectory')));
                     $action->raw('Bazar');
-                    $action->elementStart('b', array('class' => 'caret'));
-                    $action->elementEnd('b');
                     $action->elementEnd('a');
                     
-            $action->elementStart('ul', array('class' => 'dropdown-menu'));
-
-                $action->elementStart('li', array('class' => 'megamenu-content'));
-
-                    $action->elementStart('ul', array('class' => 'col-lg-3  col-sm-3 col-md-3 unstyled noMarginLeft newCollectionUl'));
-
-                    $action->elementStart('li', array('class' => 'no-border'));
-
-                    $action->elementStart('p', array('class' => 'promo-1'));
-                    $action->elementStart('strong');
-                    $action->raw('Categorías');
-                    $action->elementEnd('strong');
-                    $action->elementEnd('p');
-                    $action->elementEnd('li');
-
-                    if(isset($action->kategori)) {
-                        foreach($action->kategori as $key => $val) {
-                                $action->elementStart('li');
-                                $action->elementStart('a', array('href' => '#'));
-                                $action->raw($val);
-                                $action->elementEnd('a');
-                                $action->elementEnd('li');
-
-                        }
-                    }
-
-
-                    $action->elementEnd('ul');
-
-                    $action->elementStart('ul', array('class' => 'col-lg-3  col-sm-3 col-md-3  col-xs-4'));
-
-                        $action->elementStart('li');
-
-                        $action->elementStart('a', array('class' => 'newProductMenuBlock', 'href' => '#'));
-
-                        $action->element('img', array('class' => 'img-responsive', 'src' => SharingsThemePlugin::staticPath('SharingsTheme', 'images/sharings.png'),
-                                        'alt' => 'Hospitalidad'));
-                        $action->elementStart('span', array('class' => 'ProductMenuCaption'));
-
-                        $action->elementStart('i', array('class' => 'fa fa-caret-right'));
-                        $action->elementEnd('i');
-                        $action->raw('Hospitalidad');    
-
-                        $action->elementEnd('span');
-                        $action->elementEnd('a');
-                        $action->elementEnd('li');
-
-                    $action->elementEnd('ul');
-
-                    $action->elementStart('ul', array('class' => 'col-lg-3  col-sm-3 col-md-3  col-xs-4'));
-
-                        $action->elementStart('li');
-
-                        $action->elementStart('a', array('class' => 'newProductMenuBlock', 'href' => '#'));
-
-                        $action->element('img', array('class' => 'img-responsive', 'src' => SharingsThemePlugin::staticPath('SharingsTheme', 'images/sharings.png'),
-                                        'alt' => 'Servicios'));
-                        $action->elementStart('span', array('class' => 'ProductMenuCaption'));
-
-                        $action->elementStart('i', array('class' => 'fa fa-caret-right'));
-                        $action->elementEnd('i');
-                        $action->raw('Servicios');    
-
-                        $action->elementEnd('span');
-                        $action->elementEnd('a');
-                        $action->elementEnd('li');
-
-                    $action->elementEnd('ul');
-
-                    $action->elementStart('ul', array('class' => 'col-lg-3  col-sm-3 col-md-3  col-xs-4'));
-
-                        $action->elementStart('li');
-
-                        $action->elementStart('a', array('class' => 'newProductMenuBlock', 'href' => '#'));
-
-                        $action->element('img', array('class' => 'img-responsive', 'src' => SharingsThemePlugin::staticPath('SharingsTheme', 'images/sharings.png'),
-                                        'alt' => 'Libros, Películas y Música'));
-                        $action->elementStart('span', array('class' => 'ProductMenuCaption'));
-
-                        $action->elementStart('i', array('class' => 'fa fa-caret-right'));
-                        $action->elementEnd('i');
-                        $action->raw('Libros, Películas y Música');    
-
-                        $action->elementEnd('span');
-                        $action->elementEnd('a');
-                        $action->elementEnd('li');
-
-                    $action->elementEnd('ul');
-
-
-                $action->elementEnd('li');
-
-
-            $action->elementEnd('ul');
-
        $action->elementStart('li', array('class' => 'dropdown megamenu-80width'));
 
                     $action->elementStart('a', array('href' => '#', 'data-toggle' => 'dropdown', 'class' => 'dropdown-toggle'));
