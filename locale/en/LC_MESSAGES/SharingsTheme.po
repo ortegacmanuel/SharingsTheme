@@ -1,0 +1,175 @@
+# English translations for PACKAGE package.
+# Copyright (C) 2016 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-05-19 22:28+0100\n"
+"PO-Revision-Date: 2016-05-19 22:28+0100\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Catálogo"
+msgstr "Catalog"
+
+msgid "Ordén por defecto"
+msgstr "Default order"
+
+msgid "Ordén por popularidad"
+msgstr "Sort by popularity"
+
+msgid "Ordén por valoración"
+msgstr "Order by rating"
+
+msgid "Los más recientes"
+msgstr "The most recent"
+
+msgid "Ver"
+msgstr "View"
+
+msgid "Contactar con el usuario que comparte este objeto o servicio"
+msgstr "Contact the user who shares this object or service"
+
+msgid "Editar o dar de baja tu objeto o servicio"
+msgstr "Edit or cancel your object or service"
+
+msgid "Editar"
+msgstr "Edit"
+
+msgid "Editar objeto o servicio"
+msgstr "Edit object or service"
+
+msgid "Nuevo"
+msgstr "New"
+
+msgid "Nuevo objeto o servicio"
+msgstr "New object or service"
+
+msgid "Responder"
+msgstr "Responder"
+
+msgid "Eliminar"
+msgstr "Remove"
+
+msgid "En la misma categoría"
+msgstr "In the same category"
+
+msgid "Selecciona una categoría"
+msgstr "Select a category"
+
+msgid "Selecciona una ciudad"
+msgstr "Select a city"
+
+msgid "Selecciona Oferta o Demanda"
+msgstr "Select supply or demand"
+
+msgid "Nombre"
+msgstr "Name"
+
+msgid "Nombre del objeto o servicio a compartir"
+msgstr "Name of the object or service to share"
+
+msgid "Detalle"
+msgstr "Details"
+
+msgid "Detalle del objeto o servicio que se quiere compartir"
+msgstr "Detail of the object or service you want to share"
+
+msgid "Precio"
+msgstr "Price"
+
+msgid ""
+"Indica el precio asociado a este producto o servicio. Asignale 0 - cero - en "
+"caso de querer compartirlo de forma gratuita"
+msgstr ""
+"Indicates the price associated with this product or service. Assign 0 - zero "
+"- in case you want to share it for free"
+
+msgid "Categoría"
+msgstr "Category"
+
+msgid "Por favor, selecciona la categoría en la que quieres publicar"
+msgstr "Please select the category you want to publish"
+
+msgid "Tipo"
+msgstr "Type"
+
+msgid "Por favor, indica si estas publicando una oferta o una demanda"
+msgstr "Please indicate if you are posting an offer or demand"
+
+msgid "Ciudad"
+msgstr "City"
+
+msgid ""
+"Por favor, selecciona una ciudad. Si tu ciudad no está en el listado puedes "
+"no indicar la ciudad ahora, agregar el objeto o servicio y pedir añadir tu "
+"ciudad en http://git.lasindias.club/manuel/Sharings/issues"
+msgstr ""
+"Please select a city. If your city is not on the list can not indicate the "
+"city now add the object or service and ask to add your city in "
+"http://git.lasindias.club/manuel/Sharings/issues"
+
+msgid "Imagen asociada"
+msgstr "Associated image"
+
+msgid "Attach a file."
+msgstr "Attach a file."
+
+msgid "Guardar cambios"
+msgstr "Save changes"
+
+msgid "Compartir"
+msgstr "Share"
+
+msgid "Todas"
+msgstr "All"
+
+msgid "Todos"
+msgstr "Everybody"
+
+msgid "Palabra clave"
+msgstr "Keyword"
+
+msgid "Buscar"
+msgstr "Search"
+
+msgid "Explora el catálogo por categorías"
+msgstr "Explore the catalog by category"
+
+msgid "Explora el catálogo por tipo de publicación"
+msgstr "Explore the catalog by type of publication"
+
+msgid "Explora el catálogo por ciudades"
+msgstr "Explore the catalog by cities"
+
+msgid "Mostrar sólo los intercambios de forma gratuita"
+msgstr "Show only zero price items"
+
+msgid "Preguntas frecuentes"
+msgstr "Frequently Asked Questions"
+
+msgid "Login"
+msgstr "Login"
+
+msgid "Hola, %s"
+msgstr "Hello, %s"
+
+msgid "Perfil"
+msgstr "Profile"
+
+msgid "Mis objetos y servicios"
+msgstr "My objects and services"
+
+msgid "Agregar un objeto o servicio"
+msgstr "Add an object or service"
+
+msgid "Cerrar sesión"
+msgstr "Log out"
