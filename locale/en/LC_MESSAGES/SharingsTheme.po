@@ -69,7 +69,7 @@ msgid "Selecciona una ciudad"
 msgstr "Select a city"
 
 msgid "Selecciona Oferta o Demanda"
-msgstr "Select supply or demand"
+msgstr "Select offer or demand"
 
 msgid "Nombre"
 msgstr "Name"
