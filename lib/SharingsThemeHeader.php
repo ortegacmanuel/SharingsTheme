@@ -27,7 +27,7 @@ class SharingsThemeHeader {
 
                                 $action->elementStart('a', array('href' => common_local_url('doc', array('title' => 'faq'))));
                                 $action->elementStart('span', array('class' => 'hidden-xs'));
-                                $action->raw(_('Preguntas frecuentes'));
+                                $action->raw(_m('Preguntas frecuentes'));
                                 $action->elementEnd('span');
                                 $action->elementStart('i', array('class' => 'glyphicon glyphicon-info-sign hide visible-xs'));
                                 $action->elementEnd('i');                              
@@ -66,7 +66,7 @@ class SharingsThemeHeader {
 
                                 $action->elementStart('a', array('href' => common_local_url('login')));
                                 $action->elementStart('span', array('class' => 'hidden-xs'));
-                                $action->raw(_('Login'));
+                                $action->raw(_m('Login'));
                                 $action->elementEnd('span');
                                 $action->elementStart('i', array('class' => 'glyphicon glyphicon-user hide visible-xs'));
                                 $action->elementEnd('i');                              
@@ -190,20 +190,20 @@ class SharingsThemeHeader {
                 $action->elementStart('li', array('class' => 'active'));
 
                     $action->elementStart('a', array('href' => common_local_url('public')));
-                    $action->raw('Home');
+                    $action->raw(_m('Home'));
                     $action->elementEnd('a');
                 $action->elementEnd('li');
 
                 $action->elementStart('li', array('class' => ''));
 
                     $action->elementStart('a', array('href' => common_local_url('sharingsthemedirectory')));
-                    $action->raw('Bazar');
+                    $action->raw(_m('Bazar'));
                     $action->elementEnd('a');
                     
        $action->elementStart('li', array('class' => 'dropdown megamenu-80width'));
 
                     $action->elementStart('a', array('href' => '#', 'data-toggle' => 'dropdown', 'class' => 'dropdown-toggle'));
-                    $action->raw('Conversación');
+                    $action->raw(_m('Conversación'));
                     $action->elementStart('b', array('class' => 'caret'));
                     $action->elementEnd('b');
                     $action->elementEnd('a');
@@ -216,7 +216,7 @@ class SharingsThemeHeader {
                     $action->elementStart('li');
                     $action->elementStart('p');
                     $action->elementStart('strong');
-                    $action->raw('Conversaciones');
+                    $action->raw(_m('Conversaciones'));
                     $action->elementEnd('strong');
                     $action->elementEnd('p');
                     $action->elementEnd('li');
@@ -227,27 +227,27 @@ class SharingsThemeHeader {
                         } catch (Exception $e) {
                             $action->elementStart('a', array('href' => common_local_url('qvitter')));
                         }
-                        $action->raw('Posts asociados');
+                        $action->raw(_m('Posts asociados'));
                         $action->elementEnd('a');
                         $action->elementEnd('li');
 
                         if (!empty($user)) {
                             $action->elementStart('li');
                             $action->elementStart('a', array('href' => common_local_url('all', array('nickname' => $nickname))));
-                            $action->raw('Línea temporal');
+                            $action->raw(_m('Línea temporal'));
                             $action->elementEnd('a');
                             $action->elementEnd('li');
                         }
 
                         $action->elementStart('li');
                         $action->elementStart('a', array('href' => common_local_url('public')));
-                        $action->raw('Línea temporal pública');
+                        $action->raw(_m('Línea temporal pública'));
                         $action->elementEnd('a');
                         $action->elementEnd('li');
 
                         $action->elementStart('li');
                         $action->elementStart('a', array('href' => common_local_url('networkpublic')));
-                        $action->raw('Toda la red conocida');
+                        $action->raw(_m('Toda la red conocida'));
                         $action->elementEnd('a');
                         $action->elementEnd('li');
 

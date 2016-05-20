@@ -30,7 +30,7 @@ msgid "Ordén por valoración"
 msgstr "Order by rating"
 
 msgid "Los más recientes"
-msgstr "The most recent"
+msgstr "Most recent"
 
 msgid "Ver"
 msgstr "View"
@@ -173,3 +173,45 @@ msgstr "Add an object or service"
 
 msgid "Cerrar sesión"
 msgstr "Log out"
+
+msgid "Conversación"
+msgstr "Conversation"
+
+msgid "Conversaciones"
+msgstr "Conversations"
+
+msgid "Inicio"
+msgstr "Start"
+
+msgid "Hospitalidad"
+msgstr "Hospitality"
+
+msgid "Home"
+msgstr "Home"
+
+msgid "Bazar"
+msgstr "Bazar"
+
+msgid "Línea temporal"
+msgstr "Timeline"
+
+msgid "Línea temporal pública"
+msgstr "Public Timeline"
+
+msgid "Toda la red conocida"
+msgstr "All known network"
+
+msgid "Administrar"
+msgstr "Admin"
+
+msgid "Últimas ofertas y demandas"
+msgstr "Latest offers and demands"
+
+msgid "Imagen actual"
+msgstr "Current image"
+
+msgid "Monstrando <strong>%d<strong> resultados"
+msgstr "Showing <strong>%d<strong> results"
+
+msgid "Posts asociados"
+msgstr "Associated posts"

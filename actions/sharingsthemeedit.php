@@ -28,7 +28,7 @@ class SharingsThemeEditAction extends EditSharingsAction {
 
             $this->elementStart('li');
             $this->elementStart('a', array('href' => common_local_url('public')));
-            $this->raw('Inicio');
+            $this->raw(_m('Inicio'));
             $this->elementEnd('a');
             $this->elementEnd('li');
 

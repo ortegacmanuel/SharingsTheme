@@ -33,7 +33,7 @@ class SharingsThemeDirectoryAction extends SharingsdirectoryAction {
 
             $this->elementStart('li');
             $this->elementStart('a', array('href' => common_local_url('public')));
-            $this->raw('Inicio');
+            $this->raw(_m('Inicio'));
             $this->elementEnd('a');
             $this->elementEnd('li');
 
@@ -108,7 +108,7 @@ class SharingsThemeDirectoryAction extends SharingsdirectoryAction {
         $this->elementStart('div', array('class' => 'w100 productFilter clearfix'));
 
         $this->elementStart('p', array('class' => 'pull-left'));
-        $this->raw(_m(sprintf('Monstrando <strong>%d<strong> resultados', $cnt)));
+        $this->raw(_m(sprintf(_m('Monstrando <strong>%d<strong> resultados'), $cnt)));
         $this->elementEnd('p');
 
         $this->elementStart('div', array('class' => 'pull-right'));
@@ -226,7 +226,7 @@ class SharingsThemeDirectoryAction extends SharingsdirectoryAction {
                     $this->elementStart('span', array('class' => 'add2cart'));
                     $this->elementStart('i', array('class' => 'glyphicon glyphicon-thumbs-up'));
                     $this->elementEnd('i');
-                    $this->raw('Responder');
+                    $this->raw(_m('Responder'));
                     $this->elementEnd('span');                
                     $this->elementEnd('a'); 
                 } else {
@@ -234,7 +234,7 @@ class SharingsThemeDirectoryAction extends SharingsdirectoryAction {
                     $this->elementStart('span', array('class' => 'add2cart'));
                     $this->elementStart('i', array('class' => 'glyphicon glyphicon-wrench'));
                     $this->elementEnd('i');
-                    $this->raw('Administrar');
+                    $this->raw(_m('Administrar'));
                     $this->elementEnd('span');                
                     $this->elementEnd('a'); 
                 }
@@ -258,7 +258,7 @@ class SharingsThemeDirectoryAction extends SharingsdirectoryAction {
 
             $this->elementStart('h3', array('class' => 'section-title style2 text-center'));
             $this->elementStart('span');
-            $this->raw('Últimas ofertas y demandas');
+            $this->raw(_m('Últimas ofertas y demandas'));
             $this->elementEnd('span');
             $this->elementEnd('h3');
 
@@ -278,7 +278,7 @@ class SharingsThemeDirectoryAction extends SharingsdirectoryAction {
                 $this->elementStart('div', array('class' => 'quickview'));
 
                 $this->elementStart('a', array('data-toggle' => 'modal', 'class' => 'btn btn-xs btn-quickview', 'href' => common_local_url('showsharings', array('id' => $sharing->id)), 'data-target' => '#productSetailsModalAjax'));
-                $this->raw('Ver');
+                $this->raw(_m('Ver'));
                 $this->elementEnd('a');
                 $this->elementEnd('div');
 
@@ -332,7 +332,7 @@ class SharingsThemeDirectoryAction extends SharingsdirectoryAction {
                     $this->elementStart('span', array('class' => 'add2cart'));
                     $this->elementStart('i', array('class' => 'glyphicon glyphicon-thumbs-up'));
                     $this->elementEnd('i');
-                    $this->raw('Responder');
+                    $this->raw(_m('Responder'));
                     $this->elementEnd('span');                
                     $this->elementEnd('a');        
                 }

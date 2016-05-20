@@ -289,7 +289,7 @@ class NewSharingsThemeForm extends Form
             $this->out->element('label', array('class' => 'notice_data-attach',
                                                'for'   => $this->id().'-sharing_data-attach'),
                                 // TRANS: Input label in notice form for adding an attachment.
-                                _('Imagen asociada'));
+                                _m('Imagen asociada'));
             // The actual input element tends to be hidden with CSS.
             $this->out->element('input', array('class' => 'notice_data-attach',
                                                'type' => 'file',
