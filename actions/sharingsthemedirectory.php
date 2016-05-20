@@ -79,6 +79,24 @@ class SharingsThemeDirectoryAction extends SharingsdirectoryAction {
         $this->elementStart('a', array('href' => common_local_url('public'), 'class' => 'subCategoryTitle'));
         $this->elementStart('span');
         $this->raw(_m('Hospitalidad'));
+		$this->raw(_m('Intercambio de casas'));
+		$this->raw(_m('Transporte y viajar juntos'));
+		$this->raw(_m('Experiencias'));
+		$this->raw(_m('Libros, Películas y Música'));
+		$this->raw(_m('Tecnología e informáticax'));
+		$this->raw(_m('Coches y motos'));
+		$this->raw(_m('Deporte y Ocio'));
+		$this->raw(_m('Muebles, Deco y Jardin'));
+		$this->raw(_m('Consolas y Videojuegos'));
+		$this->raw(_m('Moda y accesorios'));
+		$this->raw(_m('Juguetes, Niños y Bebés'));
+		$this->raw(_m('Inmobiliaria'));
+		$this->raw(_m('Electrodomésticos'));
+		$this->raw(_m('Servicios'));
+		$this->raw(_m('Otros'));
+
+        $this->raw(_m('Oferta'));
+		$this->raw(_m('Demanda'));
         $this->elementEnd('span');
         $this->elementEnd('a');
 
@@ -96,6 +114,24 @@ class SharingsThemeDirectoryAction extends SharingsdirectoryAction {
         $this->elementStart('a', array('href' => common_local_url('public'), 'class' => 'subCategoryTitle'));
         $this->elementStart('span');
         $this->raw(_m('Hospitalidad'));
+		$this->raw(_m('Intercambio de casas'));
+		$this->raw(_m('Transporte y viajar juntos'));
+		$this->raw(_m('Experiencias'));
+		$this->raw(_m('Libros, Películas y Música'));
+		$this->raw(_m('Tecnología e informáticax'));
+		$this->raw(_m('Coches y motos'));
+		$this->raw(_m('Deporte y Ocio'));
+		$this->raw(_m('Muebles, Deco y Jardin'));
+		$this->raw(_m('Consolas y Videojuegos'));
+		$this->raw(_m('Moda y accesorios'));
+		$this->raw(_m('Juguetes, Niños y Bebés'));
+		$this->raw(_m('Inmobiliaria'));
+		$this->raw(_m('Electrodomésticos'));
+		$this->raw(_m('Servicios'));
+		$this->raw(_m('Otros'));
+
+        $this->raw(_m('Oferta'));
+		$this->raw(_m('Demanda'));
         $this->elementEnd('span');
         $this->elementEnd('a');
 

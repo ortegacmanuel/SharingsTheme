@@ -215,3 +215,54 @@ msgstr "Showing <strong>%d<strong> results"
 
 msgid "Posts asociados"
 msgstr "Associated posts"
+
+msgid "Intercambio de casas"
+msgstr "Home exchange"
+
+msgid "Transporte y viajar juntos"
+msgstr "Transport and ride sharing"
+
+msgid "Experiencias"
+msgstr "Experiences"
+
+msgid "Libros, Películas y Música"
+msgstr "Books, Movies and Music"
+
+msgid "Tecnología e informática"
+msgstr "Information Technology"
+
+msgid "Coches y motos"
+msgstr "Cars and Motorbikes"
+
+msgid "Deporte y Ocio"
+msgstr "Sport and Leisure"
+
+msgid "Muebles, Deco y Jardin"
+msgstr "Furniture, Interior and Garden"
+
+msgid "Consolas y Videojuegos"
+msgstr "Games Consoles"
+
+msgid "Moda y accesorios"
+msgstr "Fashion and Accessories"
+
+msgid "Juguetes, Niños y Bebés"
+msgstr "Toys, Kids and Babies"
+
+msgid "Inmobiliaria"
+msgstr "Real Estate"
+
+msgid "Electrodomésticos"
+msgstr "Home appliances"
+
+msgid "Servicios"
+msgstr "Services"
+
+msgid "Otros"
+msgstr "Other"
+
+msgid "Oferta"
+msgstr "Offer"
+
+msgid "Demanda"
+msgstr "Demand"
