@@ -252,7 +252,28 @@ class SharingsThemeDirectoryAction extends SharingsdirectoryAction {
 
                 $this->elementStart('div', array('class' => 'action-control'));
 
-                if (!empty($user and $user->getProfile()->id != $sharing->profile_id)) {
+                if (empty($user)) {
+
+                    $this->elementStart('a', array('class' => 'btn btn-primary', 'href' => common_local_url('showsharings', array('id' => $sharing->id)), 'title' => _m('Editar o dar de baja tu objeto o servicio')));
+                    $this->elementStart('span', array('class' => 'add2cart'));
+                    $this->elementStart('i', array('class' => 'glyphicon glyphicon-info-sign'));
+                    $this->elementEnd('i');
+                    $this->raw(_m('Ver detalles'));
+                    $this->elementEnd('span');                
+                    $this->elementEnd('a');
+
+
+                } elseif($user->getProfile()->id == $sharing->profile_id) {
+
+                    $this->elementStart('a', array('class' => 'btn btn-primary', 'href' => common_local_url('showsharings', array('id' => $sharing->id)), 'title' => _m('Editar o dar de baja tu objeto o servicio')));
+                    $this->elementStart('span', array('class' => 'add2cart'));
+                    $this->elementStart('i', array('class' => 'glyphicon glyphicon-wrench'));
+                    $this->elementEnd('i');
+                    $this->raw(_m('Administrar'));
+                    $this->elementEnd('span');                
+                    $this->elementEnd('a');
+
+                } else {
 
                     $form = new SharingsThemeResponseForm($sharing, $this);
 
@@ -265,14 +286,7 @@ class SharingsThemeDirectoryAction extends SharingsdirectoryAction {
                     $this->raw(_m('Responder'));
                     $this->elementEnd('span');                
                     $this->elementEnd('a'); 
-                } else {
-                    $this->elementStart('a', array('class' => 'btn btn-primary', 'href' => common_local_url('showsharings', array('id' => $sharing->id)), 'title' => _m('Editar o dar de baja tu objeto o servicio')));
-                    $this->elementStart('span', array('class' => 'add2cart'));
-                    $this->elementStart('i', array('class' => 'glyphicon glyphicon-wrench'));
-                    $this->elementEnd('i');
-                    $this->raw(_m('Administrar'));
-                    $this->elementEnd('span');                
-                    $this->elementEnd('a'); 
+
                 }
 
                 $this->elementEnd('div');
