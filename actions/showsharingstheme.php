@@ -22,6 +22,8 @@ class ShowSharingsThemeAction extends ShowSharingsAction {
 
         $sharing = $this->sharings;
 
+        $profile = Profile::getKV('id', $sharing->profile_id);
+
         $this->elementStart('div', array('class' => 'container main-container headerOffset'));
 
 
@@ -138,21 +140,13 @@ class ShowSharingsThemeAction extends ShowSharingsAction {
 
         $this->elementStart('div', array('class' => 'cart-actions'));
 
-        if (!empty($user and $user->getProfile()->id != $sharing->profile_id)) {
-            $form = new SharingsThemeResponseForm($sharing, $this);
+        if (empty($user)) {
 
-            $form->show();
+            $this->elementStart('p');
+            $this->raw(_m(sprintf('Para responder a esta publicación puedes <a href="%s"><strong>registrarte</strong></a> o si ya tienes un usuario en este nodo sólo tienes que <a href="%s"><strong>loguearte</strong></a>. Si tienes un usuario en otro nodo puedes contactar remotamente con <a href="%s">%s</a> para conversar sobre esta publicación.', common_local_url('register'), common_local_url('login'), $profile->getUri(), $profile->getNickname())));
+            $this->elementEnd('p');
 
-            $this->elementStart('div', array('class' => 'addto row'));
-
-            $this->elementStart('div', array('class' => 'col-lg-6 col-md-6 col-sm-6 col-xs-12'));
-
-            $this->elementStart('button', array('onclick' => 'document.getElementById("sharingresponse-form-' . $sharing->id . '").submit();', 'class' => 'button btn-block btn-cart cart first', 'title' => _m('Contactar con el usuario que comparte este objeto o servicio'), 'type' => 'button'));
-            $this->raw(_m('Responder'));
-            $this->elementEnd('button');
-            $this->elementEnd('div');
-            $this->elementEnd('div');
-        } else {
+        } elseif ($user->getProfile()->id == $sharing->profile_id) {
 
             $this->elementStart('div', array('class' => 'addto row'));
 
@@ -172,6 +166,21 @@ class ShowSharingsThemeAction extends ShowSharingsAction {
 
             $this->elementEnd('div');
 
+        } else {
+
+            $form = new SharingsThemeResponseForm($sharing, $this);
+
+            $form->show();
+
+            $this->elementStart('div', array('class' => 'addto row'));
+
+            $this->elementStart('div', array('class' => 'col-lg-6 col-md-6 col-sm-6 col-xs-12'));
+
+            $this->elementStart('button', array('onclick' => 'document.getElementById("sharingresponse-form-' . $sharing->id . '").submit();', 'class' => 'button btn-block btn-cart cart first', 'title' => _m('Contactar con el usuario que comparte este objeto o servicio'), 'type' => 'button'));
+            $this->raw(_m('Responder'));
+            $this->elementEnd('button');
+            $this->elementEnd('div');
+            $this->elementEnd('div');
         }
 
         $this->elementEnd('div');
